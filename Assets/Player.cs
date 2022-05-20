@@ -47,6 +47,7 @@ public class Player : MonoBehaviour {
 			isDead = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+			SceneManager.LoadScene("Menu");
 		}
 	}
 
@@ -138,7 +139,8 @@ public class Player : MonoBehaviour {
 			lastHit = Time.time + 1.0f;
 			EnemyController monster = rh.collider.GetComponent<EnemyController>();
 			monster.currentHealth -= 33.5f;
-			if(Time.time > currentJumpCooldown)
+			monster.healthBar.setHealth(monster.currentHealth);
+			if (Time.time > currentJumpCooldown)
 				rb.AddForce(0, 15, 0, ForceMode.Impulse);
 		}
 	}
@@ -146,7 +148,8 @@ public class Player : MonoBehaviour {
 	public void takeDamage(float damage)
     {
 		currentHealth -= damage;
-    }
+		healthBar.setHealth(currentHealth);
+	}
 
 	public void savePlayer ()
 	{
@@ -158,6 +161,7 @@ public class Player : MonoBehaviour {
 		PlayerData data = SaveSystem.LoadPlayer();
 
 		currentHealth = data.health;
+		healthBar.setHealth(currentHealth);
 
 		Vector3 position;
 		position.x = data.position[0];
