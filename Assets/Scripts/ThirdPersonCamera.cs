@@ -7,15 +7,15 @@ public class ThirdPersonCamera : MonoBehaviour
     private const float Y_ANGLE_MIN = 0.0f;
     private const float Y_ANGLE_MAX = 50.0f;
 
-    public Transform target, player;
+    public Transform target,player;
     // public Transform camTransform;
-    public float distance = 15.0f;
-    
+    public float distance = 5.0f;
+
     private float currentX = 0.0f;
-    private float currentY = 50.0f;
+    private float currentY = 45.0f;
     // private float sensitivityX = 20.0f;
     // private float sensitivityY = 20.0f;
-    
+
     private void Start()
     {
         // camTransform = transform;
@@ -26,16 +26,16 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Update()
     {
     }
-    
+
     private void LateUpdate()
     {
         CamControl();
     }
-    
+
     void CamControl(){
         currentX += Input.GetAxis("Mouse X") * 1;
         currentY -= Input.GetAxis("Mouse Y") * 1;
-        currentY = Mathf.Clamp(currentY, -35, 20);
+        currentY = Mathf.Clamp(currentY, -55, 25);
 
         transform.LookAt(target);
 
