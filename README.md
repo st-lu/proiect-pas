@@ -25,7 +25,6 @@ Există animații pentru:
 
 ## Graphics
 - Am implementat două shadere, pentru teren și pentru lumina albastră care simulează lumina din ocean. Algele de pe teren se generează automat în timp ce camera se apropie de ele.
-img insert
 
 ![Graphics Image](https://drive.google.com/uc?export=view&id=19ToYJtJLC_6nRsTMdQ5-HllRyYgWRTja)
 
